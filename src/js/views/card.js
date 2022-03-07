@@ -8,8 +8,23 @@ export const Card = (props) => (
     <div className="Title1">
       <h2>{props.title1}</h2>
     </div>
-    <section className="py-4 py-lg-5 container">
+    <section className="py-4 py-lg-5 container horizontal-scrollable">
       <div className="row">
+        <div className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
+          <div className="card">
+            <img src={saverPhoto} className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
           <div className="card">
             <img src={saverPhoto} className="card-img-top" alt="..." />

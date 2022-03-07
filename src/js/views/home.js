@@ -8,4 +8,5 @@ import { Card } from "./card";
 
 export const Home = () => (
   <Card title1="Characters" title2="Planets" title3="Vehicles"/>
+  
 );
