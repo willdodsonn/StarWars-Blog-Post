@@ -22,8 +22,8 @@ export const Navbar = () => {
 		<div className="col">
           <Link to="/demo">
 		  
-            <button className="btn btn-primary">
-              Check the Context in action
+            <button className="btn btn-light">
+              Check out this other page
             </button>
           </Link>
 		  </div>
