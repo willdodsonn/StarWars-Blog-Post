@@ -10,60 +10,17 @@ const injectContext = PassedComponent => {
 	const StoreWrapper = props => {
 		//this will be passed as the contenxt value
  
-    const state = useStore((state) => state);
-
-    const loadPeopleData = (store, url="https://swapi.dev/api/people/") => {
-      var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          store.addPeople(result.results);
-          if (result.next !== null) {
-            loadPeopleData(store, result.next);
-          }
-        });
-    };
-
-    const loadVehicleData = (
-      store,
-      url = "https://swapi.dev/api/vehicles/"
-    ) => {
-      var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          store.addVehicles(result.results);
-          if (result.next !== null) {
-            loadVehicleData(store, result.next);
-          }
-        });
-    };
-    const loadPlanets = (
-      store,
-      url = "https://swapi.dev/api/planets/"
-    ) => {
-      var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(url, requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          store.addPlanets(result.results);
-          if (result.next !== null) {
-            loadPlanets(store, result.next);
-          }
-        });
-    };
+    const [state, setState] = useState(
+			getState({
+				getStore: () => state.store,
+				getActions: () => state.actions,
+				setStore: updatedStore =>
+					setState({
+						store: Object.assign(state.store, updatedStore),
+						actions: { ...state.actions }
+					})
+			})
+    );
 		useEffect(() => {
 			/**
 			 * EDIT THIS!
@@ -74,9 +31,8 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-       loadPeopleData(state);
-       loadVehicleData(state);
-       loadPlanets(state);
+       state.actions.loadSomeData();
+     
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
