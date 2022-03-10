@@ -32,7 +32,7 @@ const Layout = () => {
 							<Single />
 						</Route>
 						<Route>
-							<h1>Not found!</h1>
+							<button>Yo, click this. It literally does nothing</button>
 						</Route>
 					</Switch>
 					<Footer />

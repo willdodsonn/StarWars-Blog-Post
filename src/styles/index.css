@@ -21,4 +21,26 @@ h2{
     color: rgb(133, 19, 19);
     text-decoration: underline;
 }
+.dataRow{
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+}
+.icons{
+    font-size: 20px;
+    float: right;
+}
+/* .cardColors{
+    background-color: #343a40;
+     color: white;
+} */
+/* .card-img-top{
+    width: 200px;
+}
+.card{
+    width: 200px;
+    height: 200px;
+    
 
+} */
